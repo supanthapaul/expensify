@@ -3,7 +3,7 @@
 exports[`Should render Header correctly 1`] = `
 <div>
   <h1>
-    Header
+    Expensify
   </h1>
   <ul>
     <li>
