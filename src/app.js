@@ -13,18 +13,15 @@ import configureStore from './store/configureStore';
 import getvisibleExpenses from './selectors/expenses';
 import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
-// ------------------------------------------------------------------ //
-
+import './firebase/firebase';
 
 // initialize store
 const store = configureStore();
 
 const jsx = (
-    // have to pass the store
     <Provider store={store}>
         <AppRouter />
     </Provider>
 );
 
-// render app
 ReactDOM.render(jsx, document.getElementById('app'));
