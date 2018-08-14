@@ -41,3 +41,27 @@ export const editExpense = (id, updates) => ({
    id,
    updates
 });
+
+// SET_EXPENSES
+export const setExpenses = (expenses) => ({
+   type: 'SET_EXPENSES',
+   expenses
+});
+
+export const startSetExpenses = () => {
+   return (dispatch) => {
+      return database.ref('expenses').once('value').then(snapshot => {
+         // parse the data into an array
+         const expenses = [];
+         snapshot.forEach(childSnapshot => {
+            expenses.push({
+               id: childSnapshot.key,
+               ...childSnapshot.val()
+            });
+         });
+
+         // store expenses into redux store
+         dispatch(setExpenses(expenses));
+      });
+   }
+}
