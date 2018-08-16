@@ -22,12 +22,19 @@ export class EditExpensePage extends Component {
    render() {
       return (
          <div>
-            <ExpenseForm
-               expense={this.props.expense}
-               onSubmit={this.onSubmit}
-            />
-            <button onClick={this.onRemoveClick}
-            >Remove</button>
+            <div className="page-header">
+               <div className="content-container">
+                  <h1 className="page-header__title">Edit Expense</h1>
+               </div>
+            </div>
+            <div className="content-container">
+               <ExpenseForm
+                  expense={this.props.expense}
+                  onSubmit={this.onSubmit}
+               />
+               <button className="button button--secondary" onClick={this.onRemoveClick}
+               >Remove Expense</button>
+            </div>
          </div>
       )
    }
